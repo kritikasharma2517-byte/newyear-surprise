@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy New Year 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  margin:0;
+  font-family: Poppins, sans-serif;
+  background: linear-gradient(135deg,#ffdde1,#ee9ca7);
+}
+
+.page{
+  display:none;
+  height:100vh;
+  align-items:center;
+  justify-content:center;
+}
+
+.card{
+  background:white;
+  padding:30px;
+  border-radius:20px;
+  text-align:center;
+  max-width:320px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+h1{ color:#ff4f79; }
+button{
+  margin-top:15px;
+  padding:10px 20px;
+  border:none;
+  border-radius:20px;
+  background:#ff6f91;
+  color:white;
+  font-size:14px;
+  cursor:pointer;
+}
+button:hover{ background:#ff4f79; }
+
+.firework{
+  position:fixed;
+  font-size:28px;
+  animation:fly 1.5s ease-out forwards;
+}
+
+@keyframes fly{
+  from{ opacity:1; transform:translateY(0);}
+  to{ opacity:0; transform:translateY(-200px);}
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<div id="page1" class="page">
+  <div class="card">
+    <h1>Happy New Year My Love 💖</h1>
+    <p>This New Year, I just want you and us forever 🫶✨</p>
+    <button onclick="goToPage(2)">A message for you 💌</button>
+  </div>
+</div>
+
+<!-- PAGE 2 -->
+<div id="page2" class="page">
+  <div class="card">
+    <h1>Baby 🫶</h1>
+    <p>I loveee you sooo muchhh<br>sweetuu cutuuu babyyy 💖✨</p>
+    <button onclick="goToPage(3)">One more thing 💕</button>
+  </div>
+</div>
+
+<!-- PAGE 3 -->
+<div id="page3" class="page">
+  <div class="card">
+    <h1>For You 🫶</h1>
+    <p>Yeh bss baane ka try kiya<br>aapke liye 😞🫶✨️</p>
+    <p><b>From your Krittuu 💕</b></p>
+  </div>
+</div>
+
+<script>
+function goToPage(n){
+  document.querySelectorAll('.page').forEach(p=>p.style.display='none');
+  document.getElementById('page'+n).style.display='flex';
+  fireworks();
+}
+
+function fireworks(){
+  const e=['🎆','🎇','✨','💖'];
+  for(let i=0;i<6;i++){
+    let f=document.createElement('div');
+    f.className='firework';
+    f.innerText=e[Math.floor(Math.random()*e.length)];
+    f.style.left=Math.random()*100+'%';
+    f.style.bottom='0';
+    document.body.appendChild(f);
+    setTimeout(()=>f.remove(),1500);
+  }
+}
+
+goToPage(1); // ALWAYS start from page 1
+</script>
+
+</body>
+</html>
